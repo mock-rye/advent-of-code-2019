@@ -4,6 +4,7 @@
 #include <vector>
 #include <map>
 using namespace std;
+typedef pair<int, int> pii;
 
 int isinvect(vector<int> vi, int find){
 	for(int i = 0; i != vi.size(); ++i){
@@ -31,13 +32,13 @@ int main(){
 		switch(a[i]){
 			case 'U':
 				for(int j = 0; j < ht; ++j){
-					y--;
+					y++;
 					ma[x].push_back(y);
 				}
 				break;
 			case 'D':
 				for(int j = 0; j < ht; ++j){
-					y++;
+					y--;
 					ma[x].push_back(y);
 				}
 				break;
@@ -72,7 +73,7 @@ int main(){
 		switch(b[i]){
 			case 'U':
 				for(int j = 0; j < ht; ++j){
-					y--;
+					y++;
 					if(isinvect(ma[x], y)){
 						pr.first = x;
 						pr.second = y;
@@ -82,7 +83,7 @@ int main(){
 				break;
 			case 'D':
 				for(int j = 0; j < ht; ++j){
-					y++;
+					y--;
 					if(isinvect(ma[x], y)){
 						pr.first = x;
 						pr.second = y;
