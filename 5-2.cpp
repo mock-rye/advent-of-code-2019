@@ -705,14 +705,14 @@ int parse(vector<int> vi){
 	code cod;
 	int par1, par2, par3;
 	while(true){
-		if(i == prei){
+		/*if(i == prei){
 			freopen("log5.txt","w",stdout);
 			for(int j = 0; j < i; ++j){
 				cout << vi[j] << endl;
 			}
 			return 3;
 		}
-		if(i >= vi.size()) return 2;
+		if(i >= vi.size()) return 2;*/ //debugging check
 		cod = toCode(vi[i]);
 		prei = i;
 		
@@ -791,6 +791,6 @@ int main(){
 	vector<int> diagnostic;
 	int n;
 	diagnostic = buildDiag();
-	cout << parse(diagnostic);
+	cout << parse(diagnostic) << endl; //debugging, prints parse() return
 	return 0;
 }
