@@ -37,9 +37,7 @@ int check(vector<int> vect){
 }
 
 int main(){
-	vector<int> vi;
-	int start = 240920, end = 789857;
-	int counter = 0;
+	int start = 240920, end = 789857, counter = 0;
 	for(int i = start; i < end; ++i){
 		if(check(vect(i))) counter++;
 	}
