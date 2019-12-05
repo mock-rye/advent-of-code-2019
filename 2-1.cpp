@@ -2,30 +2,37 @@
 #include <vector>
 using namespace std;
 
-int main(){
-	vector<int> opcode;
-	freopen("input2.txt","r",stdin);
-	int n;
-	while(cin >> n){
-		opcode.push_back(n);
-	}
-	bool a = 0;
-	for(int i = 0; i < opcode.size()/4; ++i){
-		if(a) break;
-		switch(opcode[4*i]){
+int parse(vector<int> vi){
+	int par1, par2, par3, i = 0;
+	while(true){
+		par1 = vi[i+1];
+		par2 = vi[i+2];
+		par3 = vi[i+3];
+		switch(vi[i]){
 			case 1:
-				opcode[opcode[4*i+3]] = opcode[opcode[4*i + 1]] + opcode[opcode[4*i + 2]];
+				vi[par3] = vi[par1] + vi[par2];
+				i += 4;
 				break;
 			case 2:
-				opcode[opcode[4*i+3]] = opcode[opcode[4*i + 1]] * opcode[opcode[4*i + 2]];
+				vi[par3] = vi[par1] * vi[par2];
+				i += 4;
 				break;
 			case 99:
-				a = true;
+				return vi[0];
 				break;
 			default:
-				a = true;
+				return vi[0];
 				break;
 		}
 	}
-	cout << opcode[0] << endl;
+}
+
+int main(){
+	vector<int> program;
+	freopen("input2.txt","r",stdin); //you'll need to replace the commas with spaces beforehand
+	int n;
+	while(cin >> n){
+		program.push_back(n);
+	}
+	cout << parse(program) << endl;
 }
