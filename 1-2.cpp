@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 
-int f(int a){
+int f(int a){ //recursive definition, reusing 1-1
 	if(a > 8) return (int)(a/3)-2 + f((int)(a/3)-2);
 	return 0;
 }

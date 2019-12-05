@@ -2,6 +2,10 @@
 #include <vector>
 using namespace std;
 
+int f(int a){
+	return (int)(a/3)-2;
+}
+
 int main(){
 	freopen("input1.txt","r",stdin);
 	int n, fcu;
@@ -10,7 +14,7 @@ int main(){
 		a.push_back(n);
 	}
 	for(int i = 0; i < a.size(); ++i){
-		fcu += (int)(a[i]/3)-2;
+		fcu += f(a[i]);
 	}
 	cout << fcu << endl;
 	return 0;
