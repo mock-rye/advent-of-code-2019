@@ -724,19 +724,18 @@ int parse(vector<int> vi){
 		
 		par3 = vi[i+3];
 		
-		cout << i << ": " << cod.second << cod.first << 0 << cod.type << endl;
-		cout << '>' << vi[par1] << ' ' << vi[par2] << ' ' << vi[par3] << endl;
+		//cout << i << ": " << cod.second << cod.first << 0 << cod.type << endl; //print debugging
+		//cout << '>' << vi[par1] << ' ' << vi[par2] << ' ' << vi[par3] << endl; //print debugging
+		//cout << ">>" << cod.type << endl; //print debugging
 		switch(cod.type){
 			case 1:
 			//Opcode 1 adds together numbers read from two positions and stores the result in a third position.
 				vi[par3] = vi[par1] + vi[par2];
-				//cout << '>' << par1 << ' ' << par2 << ' ' << par3 << '\n';
 				i += 4;
 				break;
 			case 2:
 			//Opcode 2 multiplies numbers read from two positions and stores the result in a third position.	
 				vi[par3] = vi[par1] * vi[par2];
-				//cout << '>' << par1 << ' ' << par2 << ' ' << par3 << '\n';
 				i += 4;
 				break;
 			case 3:
@@ -767,6 +766,7 @@ int parse(vector<int> vi){
 			//Opcode 7 is less than: if the first parameter is less than the second parameter
 			//it stores 1 in the position given by the third parameter
 			//Otherwise, it stores 0.
+				i += 4;
 				if(vi[par1] < vi[par2]) vi[par3] = 1;
 				else vi[par3] = 0;
 				break;
@@ -774,6 +774,7 @@ int parse(vector<int> vi){
 			//Opcode 8 is equals: if the first parameter is equal to the second parameter
 			//it stores 1 in the position given by the third parameter
 			//Otherwise, it stores 0.
+				i += 4;
 				if(vi[par1] == vi[par2]) vi[par3] = 1;
 				else vi[par3] = 0;
 				break;
@@ -786,7 +787,6 @@ int parse(vector<int> vi){
 		}
 	}
 }
-
 int main(){
 	vector<int> diagnostic;
 	int n;
