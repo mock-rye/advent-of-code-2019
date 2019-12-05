@@ -791,6 +791,6 @@ int main(){
 	vector<int> diagnostic;
 	int n;
 	diagnostic = buildDiag();
-	cout << parse(diagnostic) << endl; //debugging, prints parse() return
+	parse(diagnostic);
 	return 0;
 }

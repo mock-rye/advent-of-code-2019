@@ -691,7 +691,7 @@ struct code{
 	bool first, second;
 };
 
-code toCode(int eger){
+code toCode(int eger){ //converts an int to custom struct code, for ease of processing
 	code out;
 	out.type = eger%100;
 	out.first = (eger%1000)/100;
@@ -704,29 +704,21 @@ int parse(vector<int> vi){
 	code cod;
 	int par1, par2, par3;
 	while(true){
-		
 		cod = toCode(vi[i]);
-		
 		if(cod.first) par1 = i+1;
 		else par1 = vi[i+1];
-		
 		if(cod.second) par2 = i+2;
 		else par2 = vi[i+2];
-		
 		par3 = vi[i+3];
-		
-		//cout << cod.second << cod.first << 0 << cod.type << endl;
-		switch(cod.type){
+		switch(cod.type){//check against the opcode
 			case 01:
 			//Opcode 1 adds together numbers read from two positions and stores the result in a third position.
 				vi[par3] = vi[par1] + vi[par2];
-				//cout << '>' << par1 << ' ' << par2 << ' ' << par3 << '\n';
 				i += 4;
 				break;
 			case 02:
 			//Opcode 2 multiplies numbers read from two positions and stores the result in a third position.	
 				vi[par3] = vi[par1] * vi[par2];
-				//cout << '>' << par1 << ' ' << par2 << ' ' << par3 << '\n';
 				i += 4;
 				break;
 			case 03:
@@ -749,13 +741,12 @@ int parse(vector<int> vi){
 				break;
 		}
 	}
-	
 }
 
 int main(){
 	vector<int> diagnostic;
 	int n;
 	diagnostic = buildDiag();
-	cout << parse(diagnostic);
+	parse(diagnostic);
 	return 0;
 }
