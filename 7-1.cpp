@@ -2,7 +2,8 @@
 #include <vector>
 using namespace std;
 
-struct code{
+class code{
+public:
 	int type;
 	bool first, second;
 	code(int _type, bool _first, bool _second){
