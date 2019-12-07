@@ -20,7 +20,7 @@ int parse(vector<int> vi, int phase, int input){
 	//cout << "parsing: " << phase << endl; //print debugging
 	int i = 0;
 	int prei = 1;
-	code cod(0,0,0) ;
+	code cod(0,0,0);
 	int par1, par2, par3;
 	bool a = 1;
 	while(true){
