@@ -10,30 +10,26 @@ public:
 	vector<int> children;
 };
 
-typedef map<int,node> ma_in;
+typedef map<int,node> tree;
 
 int toInt(string input){
-	//cout << input; //print debugging
 	return (input[0])*91*91 + (input[1])*91 + (input[2]);
 }
 
-ma_in readInput(){
+tree readInput(){
 	string str;
 	int start, end;
 	map<int,node> out;
 	while(cin >> str){
-		//cout << "reading: "; //print debugging
 		start = toInt(str.substr(0,3));
-		//cout << '\t'; //print debugging
 		end = toInt(str.substr(4,3));
-		//cout << endl; //print debugging
 		out[start].children.push_back(end);
 		out[end].parent = start;
 	}
 	return out;
 }
 
-int parse(int head, ma_in graph){
+int parse(int head, tree graph){
 	vector<int> queue;
 	int current;
 	int out = 0;
@@ -42,7 +38,6 @@ int parse(int head, ma_in graph){
 	}
 	for(int i = 0; i < queue.size(); ++i){
 		current = queue[i];
-		//cout << current << endl; //print debugging
 		for(int j = 0; j < graph[current].children.size(); ++j){
 			queue.push_back(graph[current].children[j]);
 		}
@@ -54,7 +49,7 @@ int parse(int head, ma_in graph){
 
 int main(){
 	freopen("input6.txt","r",stdin);
-	ma_in graph = readInput();
+	tree graph = readInput();
 	cout << parse(toInt("COM"), graph) << endl;
 	return 0;
 }
