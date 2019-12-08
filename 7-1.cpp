@@ -111,7 +111,7 @@ vector<int> readInput(){
 
 int iterate(vector<int> input){
 	//cout << "iterating\n"; //print debugging
-	int bla[5] = {-1,1,2,3,4};
+	int bla[5] = {-1,0,1,2,3};
 	int most = 0;
 	while(bla[0] < 5){
 		bla[0]++;
