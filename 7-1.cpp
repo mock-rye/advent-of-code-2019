@@ -113,18 +113,18 @@ int iterate(vector<int> input){
 	//cout << "iterating\n"; //print debugging
 	int bla[5] = {-1,0,1,2,3};
 	int most = 0;
-	while(bla[0] < 5){
+	while(bla[0] < 4){
 		bla[0]++;
-		while(bla[1] < 5){
+		while(bla[1] < 4){
 			bla[1]++;
 			if(bla[1] == bla[0]) continue;
-			while(bla[2] < 5){
+			while(bla[2] < 4){
 				bla[2]++;
 				if(bla[2] == bla[0] || bla[2] == bla[1]) continue;
-				while(bla[3] < 5){
+				while(bla[3] < 4){
 					bla[3]++;
 					if(bla[3] == bla[0] || bla[3] == bla[1] || bla[3] == bla[2]) continue;
-					while(bla[4] < 5){
+					while(bla[4] < 4){
 						bla[4]++;
 						if(bla[4] == bla[0] || bla[4] == bla[1] || bla[4] == bla[2] || bla[4] == bla[3]) continue;
 						most = max(parse(input, bla[4], parse(input, bla[3], parse(input, bla[2], parse(input, bla[1], parse(input, bla[0], 0))))), most);
